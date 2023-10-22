@@ -15,19 +15,15 @@ import "erc721a/contracts/ERC721A.sol";
 // For cross domain messages' origin
 import {ICrossDomainMessenger} from "@eth-optimism/contracts/libraries/bridge/ICrossDomainMessenger.sol";
 
-import {IERC20, SafeERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-
-
 contract NFTMintOnL2 is ERC721A, Ownable {
     using Strings for uint256;
-    using SafeERC20 for IERC20;
 
     address public MintWithApeL1Address = address(0);
 
     event Mint(address, uint256);
     event MintL2(address, address, uint256);
 
-    constructor() ERC721A("XL2", "AD2") {}
+    constructor() ERC721A("NFTMintOnL2", "NFTL2") {}
 
     function setMintWithApeL1Address(
         address newMintWithApeL1Address
@@ -54,7 +50,7 @@ contract NFTMintOnL2 is ERC721A, Ownable {
     }
 
     function mintL2(address account, uint256 quantity) public {
-        //require(MintWithApeL1Address != address(0), "invalid L1 contract"); // uncomment for production
+        require(MintWithApeL1Address != address(0), "invalid L1 contract"); // uncomment for production
         require(MintWithApeL1Address == getXorig(), "unauthorized L1 contract");
         _mintbatch(account, quantity);
         emit MintL2(account, getXorig(), quantity);
@@ -63,7 +59,6 @@ contract NFTMintOnL2 is ERC721A, Ownable {
     function tokenURI(
         uint256 tokenId
     ) public view virtual override returns (string memory) {
-        //string memory image = Base64.encode(bytes(generateSVGImage(params)));
         return
             string(
                 abi.encodePacked(

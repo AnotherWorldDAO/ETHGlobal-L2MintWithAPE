@@ -41,13 +41,13 @@ contract MintWithApeL1 is Ownable {
 
     function setErc20TokenAddress(address newErc20TokenAddress) public onlyOwner{
         require(newErc20TokenAddress != address(0), "invalid address");
-        require(erc20TokenAddress == address(0), "already updated");
+        //require(erc20TokenAddress == address(0), "can only update once");
         erc20TokenAddress = newErc20TokenAddress;
     }
 
     function setNFTL2Address(address newNFTL2Address) public onlyOwner{
         require(newNFTL2Address != address(0), "invalid address");
-        require(NFTL2Address == address(0), "already updated");
+        //require(NFTL2Address == address(0), "can only update once");
         NFTL2Address = newNFTL2Address;
     }
 
