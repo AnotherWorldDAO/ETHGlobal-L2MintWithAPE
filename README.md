@@ -2,7 +2,7 @@
 
 
 # L2MintWithApe
-What if we can pay in $APE to mint NFTs on L2 (such as Optimism)?
+What if we can pay in $APE to mint NFTs on L2 Optimism?
 
 - `MintWithApeL1.sol` - L1 contract to receive $APE and send cross layer message to L2
 - `MockAPE.sol` - mock erc20 contract
