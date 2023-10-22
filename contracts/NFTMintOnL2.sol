@@ -50,7 +50,7 @@ contract NFTMintOnL2 is ERC721A, Ownable {
     }
 
     function mintL2(address account, uint256 quantity) public {
-        require(MintWithApeL1Address != address(0), "invalid L1 contract"); // uncomment for production
+        //require(MintWithApeL1Address != address(0), "invalid L1 contract"); // uncomment for production
         require(MintWithApeL1Address == getXorig(), "unauthorized L1 contract");
         _mintbatch(account, quantity);
         emit MintL2(account, getXorig(), quantity);

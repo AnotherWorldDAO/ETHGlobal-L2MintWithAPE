@@ -92,12 +92,14 @@ contract MintWithApeL1 is Ownable {
         if (block.chainid == 5)
             crossDomainMessengerAddress = 0x5086d1eEF304eb5284A0f6720f79403b4e9bE294;
 
-         // comment out because hh tests do not work for cross layer simulation
+        // comment out because hh tests do not work for cross layer simulation
+        /*
         ICrossDomainMessenger(crossDomainMessengerAddress).sendMessage(
             NFTL2Address,
             message,
             1000000 // within the free gas limit amount
         );
+        */
 
         unchecked {
             counter = counter + quantity;
