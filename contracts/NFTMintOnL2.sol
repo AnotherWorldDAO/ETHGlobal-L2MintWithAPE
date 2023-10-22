@@ -29,7 +29,7 @@ contract NFTMintOnL2 is ERC721A, Ownable {
 
     constructor() ERC721A("XL2", "AD2") {}
 
-    function setDeedL1Address(
+    function setMintWithApeL1Address(
         address newMintWithApeL1Address
     ) public onlyOwner {
         require(newMintWithApeL1Address != address(0), "invalid input");
