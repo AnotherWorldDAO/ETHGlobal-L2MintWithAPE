@@ -15,11 +15,15 @@ https://hardhat.org/tutorial
 - `npx hardhat test`
 
 ## deploy
+- after each deployment, make sure you update contract addresses in the next deployment script
 - `npx hardhat run scripts\01_L1Deploy.js --network goerli`
-- make notes about `MockAPE` and `MintWithApeL1` contract addresses
 - `npx hardhat run scripts\02_L2Deploy.js --network goerliop`
 
 ## test tokens
-- MockAPE Contract https://goerli.etherscan.io/address/0x34cc61825070D9a1D8E5eD850BeeA7202B0281F2
-- MintWithApeL1 Contract https://goerli.etherscan.io/address/0xD617396D8196523CB037748F64B332553EA46e4D
-- NFTMintOnL2 Contract https://goerli-optimism.etherscan.io/address/0xc347eCB45801bCb592d5A31f9547b33ea099F35c
+- MockAPE Contract https://goerli.etherscan.io/address/0x72CfCf91bB8b19050dFAD21fe76631398d58028A
+- MintWithApeL1 Contract https://goerli.etherscan.io/address/0x6779B507Ee71B5aE50f663B1F2E55993449E2eB7
+- NFTMintOnL2 Contract https://goerli-optimism.etherscan.io/address/0x34cc61825070D9a1D8E5eD850BeeA7202B0281F2
+- OpenSea(testnet) https://testnets.opensea.io/collection/nftmintonl2-1
+
+## verification
+- `npx hardhat verify --network [chain name] [contract address]`
