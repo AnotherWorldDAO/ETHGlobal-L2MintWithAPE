@@ -9,7 +9,7 @@ What if we can pay in $APE to mint NFTs on L2 (such as Optimism)?
 - `NFTMintOnL2.sol` - L2 NFT mint contract to mint ERC721 tokens
 
 ## quick start
-https://hardhat.org/tutorial
+check https://hardhat.org/tutorial and set up `.env` for your infura api, test wallet pkeys, and etherscan api keys
 
 - `yarn`
 - `npx hardhat test`
