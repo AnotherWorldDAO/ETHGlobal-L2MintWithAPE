@@ -1,10 +1,9 @@
 
   // run this under the repo root
-  // npx hardhat run scripts\01_L1Deploy.js --network goerli
+  // npx hardhat run scripts\03_L1Mint.js --network goerli
   //
-  // goerli
-  // MockAPE 0x72CfCf91bB8b19050dFAD21fe76631398d58028A
-  // MintWithApeL1 0x6779B507Ee71B5aE50f663B1F2E55993449E2eB7
+  // update MintWithApeL1, MockAPE addresses, NFTMintOnL2 addresses
+  //
 
 const { ethers, network } = require("hardhat");
 
@@ -27,26 +26,31 @@ async function main() {
   const MintWithApeL1Contract = await ethers.getContractFactory(
     "MintWithApeL1"
   );
-
   const MockAPEContract = await ethers.getContractFactory(
     "MockAPE"
   );
 
-  // deploy MockAPE as erc20
-  const MockAPE =
-  await MockAPEContract.deploy();
-  await MockAPE.deployed();
-  console.log(`MockAPE Contract deployed to ${MockAPE.address} on ${network.name}`);
+  const MintWithApeL1 = await MintWithApeL1Contract.attach("0x6779B507Ee71B5aE50f663B1F2E55993449E2eB7");
 
-  await MockAPE.connect(deployer).transfer(player1.address, ethers.utils.parseEther("10000.0"));
+  const MockAPE = await MockAPEContract.attach("0x72CfCf91bB8b19050dFAD21fe76631398d58028A");
+  console.log("player1 MockAPE", await MockAPE.balanceOf(player1.address));
 
-  const MintWithApeL1 = await MintWithApeL1Contract.deploy();
-  await MintWithApeL1.deployed();
-  console.log(`MintWithApeL1 Contract deployed to ${MintWithApeL1.address} on ${network.name}`);
-  const WAIT_BLOCK_CONFIRMATIONS = 6;
-  await MintWithApeL1.deployTransaction.wait(WAIT_BLOCK_CONFIRMATIONS);
-  await MintWithApeL1.connect(deployer).setErc20TokenAddress(MockAPE.address);
+  let tx;
+  tx = await MintWithApeL1.setNFTL2Address("0x34cc61825070D9a1D8E5eD850BeeA7202B0281F2");
+  await tx.wait();
 
+  tx = await MockAPE.connect(player1).approve(MintWithApeL1.address, ethers.utils.parseEther("400.0"));
+  await tx.wait();
+
+  const tx0 = await MintWithApeL1.connect(player1).mintL2withErc20(4);
+  const receipt0 = await tx0.wait();
+  for (const event of receipt0.events) {
+    if (event.event == "MintL2") {
+      console.log(
+        event.args
+      );
+    }
+  }
   console.log("deployer:", deployer.address);
   // check account balance
   console.log(

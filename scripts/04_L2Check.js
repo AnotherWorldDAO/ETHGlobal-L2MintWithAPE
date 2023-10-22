@@ -1,11 +1,9 @@
 
   // run this under the repo root
-  // npx hardhat run scripts\02_L2Deploy.js --network goerliop
+  // npx hardhat run scripts\04_L2Check.js --network goerliop
   //
-  // update MintWithApeL1
+  // update NFTMintOnL2 address
   //
-  // goerliop
-  // NFTMintOnL2 0x34cc61825070D9a1D8E5eD850BeeA7202B0281F2
 
 const { ethers, network } = require("hardhat");
 
@@ -29,10 +27,9 @@ async function main() {
     "NFTMintOnL2"
   );
 
-  const NFTMintOnL2 = await NFTMintOnL2Contract.deploy();
-  await NFTMintOnL2.deployed();
-  console.log(`NFTMintOnL2 Contract deployed to ${NFTMintOnL2.address} on ${network.name}`);
-  await NFTMintOnL2.setMintWithApeL1Address("0x6779B507Ee71B5aE50f663B1F2E55993449E2eB7");
+  const NFTMintOnL2 = await NFTMintOnL2Contract.attach("0x34cc61825070D9a1D8E5eD850BeeA7202B0281F2");
+
+  console.log("\ntotalSupply", await NFTMintOnL2.totalSupply());
 
   console.log("deployer:", deployer.address);
   // check account balance
@@ -46,7 +43,6 @@ async function main() {
     "player1 balance:",
     ethers.utils.formatEther(await player1.getBalance())
   );
-
   console.log("\ndone!");
 }
 
