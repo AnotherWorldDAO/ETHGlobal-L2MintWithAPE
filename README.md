@@ -20,10 +20,10 @@ check https://hardhat.org/tutorial and set up `.env` for your infura api, test w
 - `npx hardhat run scripts\02_L2Deploy.js --network goerliop`
 
 ## test tokens
-- MockAPE Contract https://goerli.etherscan.io/address/0x72CfCf91bB8b19050dFAD21fe76631398d58028A
+- MockAPE L1 Contract https://goerli.etherscan.io/address/0x72CfCf91bB8b19050dFAD21fe76631398d58028A
 - MintWithApeL1 Contract https://goerli.etherscan.io/address/0x6779B507Ee71B5aE50f663B1F2E55993449E2eB7
 - NFTMintOnL2 Contract https://goerli-optimism.etherscan.io/address/0x34cc61825070D9a1D8E5eD850BeeA7202B0281F2
-- OpenSea(testnet) https://testnets.opensea.io/collection/nftmintonl2-1
+- OpenSea (L2 op-goerli) https://testnets.opensea.io/collection/nftmintonl2-1
 
 ## verification
 - `npx hardhat verify --network [chain name] [contract address]`
