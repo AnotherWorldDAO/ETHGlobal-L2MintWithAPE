@@ -15,6 +15,7 @@ check https://hardhat.org/tutorial and set up `.env` for your infura api, test w
 - `npx hardhat test` (local test, not cross-layer test)
 
 ## deploy
+- [uncomment](https://github.com/AnotherWorldDAO/L2MintWithAPE/blob/3ca25260e1214817fe2fb39bd5773d664145fa10/contracts/MintWithApeL1.sol#L97) for deployment
 - after each deployment, make sure you update contract addresses in the next deployment script
 - `npx hardhat run scripts\01_L1Deploy.js --network goerli` deploy L1 test contracts
 - `npx hardhat run scripts\02_L2Deploy.js --network goerliop` deploy L2 nft contract
