@@ -1,7 +1,7 @@
 ![cmdlogo2](https://github.com/AnotherWorldDAO/ETHGlobal-L2MintWithAPE/assets/182446/d06540aa-1d11-4cb1-b226-2b0d6403b15e)
 
 
-# ETHGlobal-L2MintWithApe
+# L2MintWithApe
 What if we can pay in $APE to mint NFTs on L2 (such as Optimism)?
 
 - `MintWithApeL1.sol` - L1 contract to receive $APE and send cross layer message to L2
