@@ -25,14 +25,26 @@ module.exports = {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`
     },
     goerli: {
-      url: `https://goerli.infura.io/v3/${process.env.INFURA_PROJECT_ID}`
+      url: `https://goerli.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
+      accounts:[`0x${process.env.AW_DEPLOYER}`, `0x${process.env.AW_OPERATOR}`]
+    },
+    sepolia: {
+      url: `https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
+      accounts:[`0x${process.env.AW_DEPLOYER}`, `0x${process.env.AW_OPERATOR}`],
+      //gasPrice: 60,
     },
     optimism: {
       url: `https://optimism-mainnet.infura.io/v3/${process.env.INFURA_PROJECT_ID}`
     },
     goerliop: {
-      url: `https://optimism-goerli.infura.io/v3/${process.env.INFURA_PROJECT_ID}`
-      //gasPrice: 80, // you may need to boost gas fee up
+      url: `https://optimism-goerli.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
+      accounts:[`0x${process.env.AW_DEPLOYER}`, `0x${process.env.AW_OPERATOR}`],
+      gasPrice: 80, // you may need to boost gas fee up
+    },
+    apetest: {
+      url: `https://l2-apechain-test-qbuapbatak.t.conduit.xyz`,
+      accounts:[`0x${process.env.AW_DEPLOYER}`, `0x${process.env.AW_OPERATOR}`],
+      //gasPrice: 80,
     },
     hardhat: {
       chainId: 1337
