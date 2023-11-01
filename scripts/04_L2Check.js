@@ -1,6 +1,6 @@
 
   // run this under the repo root
-  // npx hardhat run scripts\04_L2Check.js --network goerliop
+  // npx hardhat run scripts\04_L2Check.js --network [L2:goerliop/apetest]
   //
   // update NFTMintOnL2 address
   //

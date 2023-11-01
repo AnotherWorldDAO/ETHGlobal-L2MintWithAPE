@@ -124,6 +124,14 @@ contract NFTMintOnL2 is ERC721A, Ownable {
         if (block.chainid == 10 || block.chainid == 420)
             cdmAddr = 0x4200000000000000000000000000000000000007;
 
+        // ApeChain Testnet
+        if (block.chainid == 111)
+            cdmAddr = 0x4200000000000000000000000000000000000007;
+        
+        // Sepolia
+        if (block.chainid == 11155111)
+            cdmAddr = 0x8b8ad98e9Cbb8d5301b2C5ab2FE1b8501CB61BF1;
+            
         // If this isn't a cross domain message
         if (msg.sender != cdmAddr) return address(0);
 

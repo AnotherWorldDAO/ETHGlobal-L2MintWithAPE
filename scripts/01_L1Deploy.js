@@ -1,10 +1,14 @@
 
   // run this under the repo root
-  // npx hardhat run scripts\01_L1Deploy.js --network goerli
+  // npx hardhat run scripts\01_L1Deploy.js --network [L1:goerli/sepolia]
   //
-  // goerli
-  // MockAPE 0x72CfCf91bB8b19050dFAD21fe76631398d58028A
-  // MintWithApeL1 0x6779B507Ee71B5aE50f663B1F2E55993449E2eB7
+  // goerli -> goerliop
+  // MockAPE 0xaa6Eb12927183D41f29bB10fA94488863D530A15
+  // MintWithApeL1 0x9e0b2aB27575B95a0660E8C6b7A361f054e3Ca88
+  //
+  // sepolia -> apetest
+  // MockAPE 0x5CfCF97ec9e9ff3D8578DA9f53F5f998F0Da1fE8
+  // MintWithApeL1 0x2a0D9F12cE0831b6BF5b224822638d30a89666D6
 
 const { ethers, network } = require("hardhat");
 

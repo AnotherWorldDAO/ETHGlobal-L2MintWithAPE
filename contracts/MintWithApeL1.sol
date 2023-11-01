@@ -24,7 +24,7 @@ import {ICrossDomainMessenger} from "@eth-optimism/contracts/libraries/bridge/IC
 
 contract MintWithApeL1 is Ownable {
 
-    event MintL2(address, address, uint256, uint256);
+    event MintL2(address, address, address, uint256, uint256);
 
     address public NFTL2Address = address(0); // NFTL2Address on L2
     address public erc20TokenAddress = address(0); // $APE (ETH): 0x4d224452801aced8b2f0aebe155379bb5d594381
@@ -84,13 +84,17 @@ contract MintWithApeL1 is Ownable {
 
         address crossDomainMessengerAddress = address(0);
 
-        // Mainnet
+        // Mainnet -> OP
         if (block.chainid == 1)
             crossDomainMessengerAddress = 0x25ace71c97B33Cc4729CF772ae268934F7ab5fA1;
 
-        // Goerli
+        // Goerli -> OP Goerli
         if (block.chainid == 5)
             crossDomainMessengerAddress = 0x5086d1eEF304eb5284A0f6720f79403b4e9bE294;
+
+        // Sepolia -> ApeChain Testnet
+        if (block.chainid == 11155111)
+            crossDomainMessengerAddress = 0x8b8ad98e9Cbb8d5301b2C5ab2FE1b8501CB61BF1;
 
         // comment out because hh tests do not work for cross layer simulation
         /*
@@ -105,7 +109,7 @@ contract MintWithApeL1 is Ownable {
             counter = counter + quantity;
         }
 
-        emit MintL2(msg.sender, NFTL2Address, quantity, counter);
+        emit MintL2(msg.sender, crossDomainMessengerAddress, NFTL2Address, quantity, counter);
     }
 
     function withdrawErc20() external onlyOwner {

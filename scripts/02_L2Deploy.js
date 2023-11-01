@@ -1,11 +1,14 @@
 
   // run this under the repo root
-  // npx hardhat run scripts\02_L2Deploy.js --network goerliop
+  // npx hardhat run scripts\02_L2Deploy.js --network [L2:goerliop/apetest]
   //
   // update MintWithApeL1
   //
   // goerliop
-  // NFTMintOnL2 0x34cc61825070D9a1D8E5eD850BeeA7202B0281F2
+  // NFTMintOnL2 0xD617396D8196523CB037748F64B332553EA46e4D
+  //
+  // apetest
+  // NFTMintOnL2 0x51b8365505c95D17D40D5BE6936eaF26571455c9
 
 const { ethers, network } = require("hardhat");
 

@@ -1,8 +1,8 @@
 
   // run this under the repo root
-  // npx hardhat run scripts\03_L1Mint.js --network goerli
+  // npx hardhat run scripts\03_L1Mint.js --network [L1:goerli/sepolia]
   //
-  // update MintWithApeL1, MockAPE addresses, NFTMintOnL2 addresses
+  // update MintWithApeL1, MockAPE, NFTMintOnL2 addresses
   //
 
 const { ethers, network } = require("hardhat");
