@@ -2,7 +2,7 @@
 
 
 # L2MintWithApe
-What if we can pay in $APE to mint NFTs on L2 (Optimism)?
+What if we can pay in $APE to mint NFTs on L2s such as [Optimism](https://www.optimism.io/), [ApeChain Testnet (OP-Stack)](https://github.com/AnotherWorldDAO/ApeChain-OPStack-SepoliaL2Testnet)? This is using OP-Stack's native crosslayer messenging with minimum dependencies of 3rd party services.
 
 - `MintWithApeL1.sol` - L1 contract to receive $APE and send cross layer message to L2
 - `MockAPE.sol` - L1 mock erc20 contract (to be replaced with official [$APE](https://etherscan.io/token/0x4d224452801aced8b2f0aebe155379bb5d594381) address for L1 production deployment)
@@ -22,7 +22,7 @@ check https://hardhat.org/tutorial and set up `.env` for your infura api, test w
 - `npx hardhat run scripts\03_L1Mint.js --network goerli` pay test erc20 on L1 to relay-mint on L2
 - `npx hardhat run scripts\04_L2Check.js --network goerliop` check L2 for minted tokens
 
-## test tokens
+## deployed contracts (Goerli -> OP-Goerli)
 - MockAPE L1 Contract https://goerli.etherscan.io/address/0x72CfCf91bB8b19050dFAD21fe76631398d58028A
 - MintWithApeL1 Contract https://goerli.etherscan.io/address/0x6779B507Ee71B5aE50f663B1F2E55993449E2eB7
 - NFTMintOnL2 Contract https://goerli-optimism.etherscan.io/address/0x34cc61825070D9a1D8E5eD850BeeA7202B0281F2
